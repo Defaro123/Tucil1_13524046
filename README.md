@@ -6,7 +6,7 @@ Program ini dibuat untuk menyelesaikan permasalahan **N-Queens dengan tambahan c
 
 1. Tidak ada dua queen yang berada pada **kolom yang sama**.
 2. Tidak ada dua queen yang berada pada **sel bertetangga** (8 arah: horizontal, vertikal, diagonal).
-3. Tidak ada dua queen yang berada dalam **region yang sama**.
+3. Tidak ada dua queen yang berada dalam **region(daerah warna) yang sama**.
 4. Setiap baris harus mengandung **tepat satu queen**.
 
 Program membaca konfigurasi papan dari file input `.txt`, kemudian mencari solusi menggunakan metode brute force, dan menampilkan hasil solusi beserta waktu eksekusi dan banyak kasus yang ditinjau.
