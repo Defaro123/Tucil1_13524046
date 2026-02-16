@@ -1,0 +1,6 @@
+
+Tidak ada solusi
+
+
+Waktu pencarian: 21339.000000 ms
+Banyak kasus yang ditinjau: 387420489
