@@ -51,15 +51,15 @@ pacman -S mingw-w64-x86_64-gcc
 
 ├── test/
 
-│   └── Jb test1.txt
+│   └── Jbtest1.txt
 
-│   └── Jb test2.txt
+│   └── Jbtest2.txt
 
-│   └── Jb test3.txt
+│   └── Jbtest3.txt
 
-│   └── Jb test4.txt
+│   └── Jbtest4.txt
 
-│   └── Jb test5.txt
+│   └── Jbtest5.txt
 
 
 ### Kompilasi Program
@@ -81,7 +81,7 @@ Dari folder src
 Taruhlah file yang hendak diinput pada folder.
 Program akan meminta untuk memasukkan nama file input.
 Setelahnya, program akan menampilkan 20 konfigurasi terakhir sebagai Live Update dan konfigurasi yang terakhir adalah jawaban, beserta menampilkan waktu eksekusi dan banyaknya kasus yang ditinjau.
-Setelah itu, program akan menanyakan apakah jawaban hendak disimpan dalam file output, apabila menjawab ya, maka bisa memberikan penamaan file output.
+Setelah itu, program akan menanyakan apakah jawaban hendak disimpan dalam file output, apabila menjawab ya, maka bisa memberikan penamaan file output(tanpa spasi).
 File output akan disimpan pada folder test.
 
 ## Author:
