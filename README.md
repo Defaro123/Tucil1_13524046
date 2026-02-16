@@ -29,38 +29,54 @@ pacman -S mingw-w64-x86_64-gcc
 
 ## Cara Mengkompilasi Program
 
-###Struktur Program
+### Struktur Program
+
 ├── src/
+
 │   └── Tucil1 murni.c
+
 │   └── test1.txt
+
 │   └── test2.txt
+
 │   └── test3.txt
+
 │   └── test4.txt
+
 │   └── test5.txt
+
 ├── bin/
+
 │   └── Tucil1.exe
+
 ├── test/
+
 │   └── Jb test1.txt
+
 │   └── Jb test2.txt
+
 │   └── Jb test3.txt
+
 │   └── Jb test4.txt
+
 │   └── Jb test5.txt
 
-###Kompilasi Program
+
+### Kompilasi Program
 Masuk ke folder src dengan cara 
 cd src
 
 kemudian
 gcc "Tucil1 murni.c" -o ../bin/Tucil1.exe
 
-##Cara Menjalankan dan Menggunakan Program
+## Cara Menjalankan dan Menggunakan Program
 
-###Menjalankan Program
+### Menjalankan Program
 
 Dari folder src
 ../bin/Tucil1.exe
 
-###Menggunakan Program
+### Menggunakan Program
 
 Taruhlah file yang hendak diinput pada folder.
 Program akan meminta untuk memasukkan nama file input.
@@ -68,6 +84,7 @@ Setelahnya, program akan menampilkan 20 konfigurasi terakhir sebagai Live Update
 Setelah itu, program akan menanyakan apakah jawaban hendak disimpan dalam file output, apabila menjawab ya, maka bisa memberikan penamaan file output.
 File output akan disimpan pada folder test.
 
-##Author:
+## Author:
 Nama : Farrell
+
 NIM : 13524046
