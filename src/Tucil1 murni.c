@@ -11,14 +11,38 @@ int regionUsed[256];
 int N;
 long long kasus = 0;
 int pos[50];
+clock_t last_display = 0;
 
 int dr[8] = {-1,-1,-1,0,0,1,1,1};
 int dc[8] = {-1,0,1,-1,1,-1,0,1};
 
-
-int q[20][50];
-int front = 0, rear = 0, size = 0;
-
+void displayLive(int currentRow)
+{
+    system("cls");
+    for(int i=0; i<N; i++)
+    {
+        for(int j=0; j<N; j++)
+        {
+            if(i < currentRow && queen[i][j])
+            {
+                printf("#");
+            }
+            else if(i == currentRow)
+            {
+                if(j == pos[currentRow])
+                    printf("#");
+                else
+                    printf("%c", board[i][j]);
+            }
+            else
+            {
+                printf("%c", board[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    fflush(stdout);
+}
 
 int validasi()
 {
@@ -56,24 +80,11 @@ int validasi()
     return 1;
 }
 
-void pushQueue()
-{
-    if(size==20)
-    {
-        front=(front+1)%20;
-        size--;
-    }
-    memcpy(q[rear], pos, sizeof(int) * N);
-    rear=(rear+1)%20;
-    size++;
-}
-
 int solve(int r)
 {
     if(r==N)
     {
         kasus++;
-        pushQueue();
         return validasi();
     }
     else
@@ -81,6 +92,14 @@ int solve(int r)
         for(int c=0;c<N;c++)
         {
             pos[r]=c;
+            clock_t now = clock();
+            double elapsed = (double)(now - last_display) * 1000 / CLOCKS_PER_SEC;
+            if(elapsed >= 300)
+            {
+                displayLive(r);
+                last_display = now;
+            }
+            
             if(solve(r+1))
             {
                 return 1;
@@ -152,6 +171,7 @@ void saveSolution(char board[50][50], int N, double waktu, long long kasus, int 
     printf("Solusi berhasil disimpan\n");
 }
 
+
 int main()
 {
     char filename[100];
@@ -161,7 +181,7 @@ int main()
     FILE *f = fopen(filename, "r");
     if (!f)
     {
-        printf("File tidak ditemukan\n");
+        printf("File tidak ditemukan!\n");
         return 1;
     }
 
@@ -176,7 +196,7 @@ int main()
     fclose(f);
     if (!validateInput())
     {
-        printf("Input tidak valid\n");
+        printf("Input tidak valid!\n");
         return 1;
     }
 
@@ -186,40 +206,34 @@ int main()
 
     double waktu = (double)(selesai - mulai) * 1000 / CLOCKS_PER_SEC;
 
-    printf("20 Konfigurasi Terakhir\n\n");
+    system("cls");
+    if (!found)
+    {   
+        printf("Tidak ada solusi.\n");
+    }
 
-    int idx = front;
-
-    for (int k = 0; k < size; k++)
+    else
     {
-        printf("Percobaan ke-%lld:\n", kasus - size + k + 1);
-
-        for (int r = 0; r < N; r++)
+        for (int i = 0; i < N; i++)
         {
-            for (int c = 0; c < N; c++)
+            for (int j = 0; j < N; j++)
             {
-                if (c == q[idx][r])
+                if (queen[i][j])
                 {
                     printf("#");
                 }
                 else
                 {
-                    printf("%c", board[r][c]);
+                    printf("%c", board[i][j]);
                 }
             }
             printf("\n");
         }
-        printf("\n");
-        idx = (idx + 1) % 20;
     }
     printf("\nWaktu pencarian: %f ms\n", waktu);
-    printf("Banyak kasus yang ditinjau: %lld kasus\n", kasus);
-    if (!found)
-    {
-        printf("\nTidak ada solusi\n\n");
-    }
+    printf("Banyak kasus yang ditinjau: %lld\n", kasus);
     char pilihan[10];
-    printf("Apakah Anda ingin menyimpan solusi? (Ya/Tidak) ");
+    printf("Apakah Anda ingin menyimpan solusi? (Ya/Tidak): ");
     scanf("%s", pilihan);
 
     if (strcmp(pilihan, "Ya") == 0 || strcmp(pilihan, "ya") == 0)
