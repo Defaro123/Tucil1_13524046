@@ -80,7 +80,7 @@ Dari folder src
 
 Taruhlah file yang hendak diinput pada folder.
 Program akan meminta untuk memasukkan nama file input.
-Setelahnya, program akan menampilkan 20 konfigurasi terakhir sebagai Live Update dan konfigurasi yang terakhir adalah jawaban, beserta menampilkan waktu eksekusi dan banyaknya kasus yang ditinjau.
+Setelahnya, program akan menampilkan Live Update setiap 0,3 detik dan setelahnya pada akhir menampilkan jawaban, beserta menampilkan waktu eksekusi dan banyaknya kasus yang ditinjau.
 Setelah itu, program akan menanyakan apakah jawaban hendak disimpan dalam file output, apabila menjawab ya, maka bisa memberikan penamaan file output(tanpa spasi).
 File output akan disimpan pada folder test.
 
